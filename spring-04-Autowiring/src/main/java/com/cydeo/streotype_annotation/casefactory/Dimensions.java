@@ -1,17 +1,18 @@
 package com.cydeo.streotype_annotation.casefactory;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 @Getter
+@Setter
+@AllArgsConstructor
 @Component
-public class DellCase extends Case  {
+public class Dimensions {
+    private int width, height, depth;
 
-    public DellCase() {
-        super("2208","Dell","240");
-    }
-
-    public void pressPowerButton() {
+    public void pressPowerButton(){
         System.out.println("Power button pressed");
     }
 
