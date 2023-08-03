@@ -18,7 +18,7 @@ public class PC {
    // @Autowired // field injection (not recommended)
     private Motherboard motherboard;
 
-    @Autowired // constructor ınjection
+   // @Autowired // constructor ınjection // if there is only one constructor Spring performs autowiring implicitly
     public PC(Case theCase, Monitor monitor, Motherboard motherboard) {
         this.theCase = theCase;
         this.monitor = monitor;
