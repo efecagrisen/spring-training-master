@@ -5,6 +5,7 @@ import com.cydeo.proxy.CommentNotificationProxy;
 import com.cydeo.proxy.EmailCommentNotificationProxy;
 import com.cydeo.repository.CommentRepository;
 import com.cydeo.repository.DBCommentRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,7 +24,7 @@ public class CommentService {
      */
 
     //we create a constructor so that spring can autowire (if there is only one constructor, no need for @Autowired annotation)
-    public CommentService(CommentRepository commentRepository, CommentNotificationProxy commentNotificationProxy) {
+    public CommentService(CommentRepository commentRepository, @Qualifier("emailCommentNotificationProxy") CommentNotificationProxy commentNotificationProxy) {
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
     }
