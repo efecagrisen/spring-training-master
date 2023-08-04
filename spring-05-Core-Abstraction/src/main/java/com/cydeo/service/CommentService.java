@@ -24,7 +24,7 @@ public class CommentService {
      */
 
     //we create a constructor so that spring can autowire (if there is only one constructor, no need for @Autowired annotation)
-    public CommentService(CommentRepository commentRepository, @Qualifier("emailCommentNotificationProxy") CommentNotificationProxy commentNotificationProxy) {
+    public CommentService(CommentRepository commentRepository, @Qualifier("emailCommentNotificationProxyf") CommentNotificationProxy commentNotificationProxy) {
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
     }
@@ -39,3 +39,4 @@ public class CommentService {
 }
 
 //1:41
+//2:22
