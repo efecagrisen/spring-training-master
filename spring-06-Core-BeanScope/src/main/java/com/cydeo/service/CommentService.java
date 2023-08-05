@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 //@Scope("prototype")
 @Scope(BeanDefinition.SCOPE_PROTOTYPE) // almost never used, for interview purposes
-//Singleton --> always creates the same object
+//Singleton --> default - always creates the same object
 //Prototype --> creates a new object each time
 public class CommentService {
     //               interface name               local variable      : use polymorphism for loose coupling
