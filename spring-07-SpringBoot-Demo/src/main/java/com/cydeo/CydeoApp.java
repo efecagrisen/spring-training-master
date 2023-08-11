@@ -14,7 +14,7 @@ import org.springframework.context.ApplicationContext;
 	- @ComponentScan : Enables component scanning.
  */
 @SpringBootApplication
-public class CydeoApplication {
+public class CydeoApp {
 
 	public static void main(String[] args) {
 
@@ -22,7 +22,7 @@ public class CydeoApplication {
 		comment.setAuthor("Johnson");
 		comment.setText("Spring Framework");
 
-		/*(no need to add this)*/ ApplicationContext context =  SpringApplication.run(CydeoApplication.class, args);
+		/*(no need to add this)*/ ApplicationContext context =  SpringApplication.run(CydeoApp.class, args);
 
 
 		CommentService commentService = context.getBean(CommentService.class);
