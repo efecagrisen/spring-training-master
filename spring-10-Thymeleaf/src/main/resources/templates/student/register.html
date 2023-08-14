@@ -47,5 +47,30 @@
 </ul>
 
 
+<h2>Printing Students in table</h2>
+
+<table>
+    <thead>
+    <tr>
+        <td><strong> First Name</strong> </td>
+        <td><strong> Last Name</strong></td>
+        <td><strong> Age</strong></td>
+        <td><strong> State</strong></td>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.lastName}"></td>
+        <td th:text="${student.age}"></td>
+        <td th:text="${student.state}"></td>
+    </tr>
+    </tbody>
+
+
+
+</table>
 </body>
 </html>
