@@ -25,12 +25,26 @@
     <br>
 <!--adding parameters in Link-->
 <h2>
-    <a th:href="@{/student/welcome(id=3)}">Link</a>
+    <a th:href="@{/student/welcome(id=3)}">Link1</a>
 </h2>
 
 <h2>
-    <a th:href="@{/student/welcome(name=${students.get(0).firstName})}">Link</a>
+    <a th:href="@{/student/welcome(name=${students.get(0).firstName})}">Link2</a>
 </h2>
+
+<!--Iteration-->
+
+<h2>Printing Student's First Name</h2>
+<ul>
+    <li th:each=" student : ${students}" th:text="${student.firstName}" ></li>
+
+</ul>
+
+<h2>Printing Student's Last Name</h2>
+<ul>
+    <li th:each=" student : ${students}" th:text="${student.lastName}" ></li>
+
+</ul>
 
 
 </body>
