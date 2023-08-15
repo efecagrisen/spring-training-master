@@ -31,7 +31,8 @@ public class MentorController {
     public String submitForm(@ModelAttribute("mentor") Mentor mentor){
 
 
-        return "mentor/mentor-confirmation";
+//        return "mentor/mentor-confirmation";
+        return "redirect:/mentor/register";
 
     }
 
