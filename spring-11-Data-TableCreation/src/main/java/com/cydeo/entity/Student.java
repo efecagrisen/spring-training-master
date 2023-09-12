@@ -29,5 +29,8 @@ public class Student {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
+    @Transient
+    private String city;
+
 }
 
