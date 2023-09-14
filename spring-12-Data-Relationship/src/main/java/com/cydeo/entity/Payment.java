@@ -25,7 +25,8 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     private Status paymentStatus;
 
-    @OneToOne
+    //@OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}) //In real life apps data is never deleted but kept in another table/column etc.
    //@JoinColumn(name = "payment_detail-id") // to change the column name
     private PaymentDetail paymentDetail;
 
