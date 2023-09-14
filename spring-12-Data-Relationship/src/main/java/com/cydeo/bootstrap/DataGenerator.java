@@ -40,6 +40,8 @@ public class DataGenerator implements CommandLineRunner {
 
         paymentRepository.delete(payment1);
 
+        //1:49
+
 
     }
 }
