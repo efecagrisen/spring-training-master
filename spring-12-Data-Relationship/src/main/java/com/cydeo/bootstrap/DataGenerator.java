@@ -2,10 +2,7 @@ package com.cydeo.bootstrap;
 
 import com.cydeo.entity.*;
 import com.cydeo.enums.Status;
-import com.cydeo.repository.CartRepository;
-import com.cydeo.repository.ItemRepository;
-import com.cydeo.repository.MerchantRepository;
-import com.cydeo.repository.PaymentRepository;
+import com.cydeo.repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -20,16 +17,21 @@ public class DataGenerator implements CommandLineRunner {
     private final MerchantRepository merchantRepository;
     private final ItemRepository itemRepository;
     private final CartRepository cartRepository;
+    private final CustomerRepository customerRepository;
 
-    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository, ItemRepository itemRepository, CartRepository cartRepository) {
+    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository, ItemRepository itemRepository, CartRepository cartRepository, CustomerRepository customerRepository) {
         this.paymentRepository = paymentRepository;
         this.merchantRepository = merchantRepository;
         this.itemRepository = itemRepository;
         this.cartRepository = cartRepository;
+        this.customerRepository = customerRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        Customer customer1 = new Customer("Efe","Sen","ECS","efecagrisen@yahoo.com","Turkey");
+        Customer customer2 = new Customer("Cagri","Sen","CGS","ecs@yahoo.com","Turkey");
 
         Payment payment1 = new Payment(LocalDate.of(2022,4,19),new BigDecimal("150000"), Status.SUCCESS);
         PaymentDetail paymentDetail1 = new PaymentDetail(new BigDecimal("140000"),new BigDecimal("10000"),LocalDate.of(2022,4,24));
@@ -66,6 +68,8 @@ public class DataGenerator implements CommandLineRunner {
         cartRepository.save(cart1);
         cartRepository.save(cart2);
 
+        customerRepository.save(customer1);
+        customerRepository.save(customer2);
 
         merchantRepository.save(merchant1);
 
