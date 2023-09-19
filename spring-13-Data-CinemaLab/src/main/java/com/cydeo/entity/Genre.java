@@ -8,11 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Genre extends BaseEntity {
 
     private String name;
