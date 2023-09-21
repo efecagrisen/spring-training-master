@@ -40,7 +40,8 @@ public class QueryDemo implements CommandLineRunner {
 
         System.out.println("-----EMPLOYEES-----");
 
-        //System.out.println(employeeRepository.findBySalaryGreaterThan(75000));
+        System.out.println("retrieveEmployeeDetail: " + employeeRepository.retrieveEmployeeDetail());
+        System.out.println("retrieveEmployeeSalary: " + employeeRepository.retrieveEmployeeSalary());
 
     }
 }
