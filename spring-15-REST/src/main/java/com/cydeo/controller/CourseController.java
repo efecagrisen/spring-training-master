@@ -8,7 +8,7 @@ import java.util.List;
 
 //@Controller
 @RestController // combination of @Controller and @ResponseBody
-@RequestMapping("/courses")
+@RequestMapping("/courses/api/v1")
 public class CourseController {
 
     private final CourseService courseService;
