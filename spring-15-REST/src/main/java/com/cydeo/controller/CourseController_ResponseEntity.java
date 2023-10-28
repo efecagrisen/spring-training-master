@@ -30,4 +30,6 @@ public class CourseController_ResponseEntity {
                 .body(courseService.getCourses());
     }
 
+//    02:03
+
 }
