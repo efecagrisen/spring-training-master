@@ -30,7 +30,7 @@ public class ParentDTO {
 
     private Status status;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "parent-address-reference")
     private AddressDTO address;
 
 }
