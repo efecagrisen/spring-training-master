@@ -21,31 +21,31 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class WeatherDTO {
 
     @JsonProperty("request")
-    private Request request;
+    private RequestDTO request;
     @JsonProperty("location")
-    private Location location;
+    private LocationDTO location;
     @JsonProperty("current")
     private CurrentDTO current;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("request")
-    public Request getRequest() {
+    public RequestDTO getRequest() {
         return request;
     }
 
     @JsonProperty("request")
-    public void setRequest(Request request) {
+    public void setRequest(RequestDTO request) {
         this.request = request;
     }
 
     @JsonProperty("location")
-    public Location getLocation() {
+    public LocationDTO getLocation() {
         return location;
     }
 
     @JsonProperty("location")
-    public void setLocation(Location location) {
+    public void setLocation(LocationDTO location) {
         this.location = location;
     }
 

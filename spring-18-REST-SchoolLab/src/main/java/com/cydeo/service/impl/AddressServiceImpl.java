@@ -1,11 +1,15 @@
 package com.cydeo.service.impl;
 
+import com.cydeo.client.WeatherApiClient;
 import com.cydeo.dto.AddressDTO;
+import com.cydeo.dto.WeatherDTO;
 import com.cydeo.entity.Address;
 import com.cydeo.util.MapperUtil;
 import com.cydeo.repository.AddressRepository;
 import com.cydeo.service.AddressService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,10 +20,15 @@ public class AddressServiceImpl implements AddressService {
 
     private final AddressRepository addressRepository;
     private final MapperUtil mapperUtil;
+    private final WeatherApiClient weatherApiClient;
 
-    public AddressServiceImpl(AddressRepository addressRepository, MapperUtil mapperUtil) {
+    @Value("${access_key}")
+    private String access_key;
+
+    public AddressServiceImpl(AddressRepository addressRepository, MapperUtil mapperUtil, WeatherApiClient weatherApiClient) {
         this.addressRepository = addressRepository;
         this.mapperUtil = mapperUtil;
+        this.weatherApiClient = weatherApiClient;
     }
 
     @Override
@@ -34,7 +43,14 @@ public class AddressServiceImpl implements AddressService {
     public AddressDTO findById(Long id) throws Exception {
         Address foundAddress = addressRepository.findById(id)
                 .orElseThrow(() -> new Exception("No Address Found!"));
-        return mapperUtil.convert(foundAddress, new AddressDTO());
+
+        AddressDTO addressDTO = mapperUtil.convert(foundAddress, new AddressDTO());
+        addressDTO.setCurrentTemperature(
+                getCurrentWeather(addressDTO.getCity())
+                .getCurrent()
+                .getTemperature());
+
+        return addressDTO;
     }
 
     @Override
@@ -67,5 +83,12 @@ public class AddressServiceImpl implements AddressService {
         return mapperUtil.convert(addressToSave, new AddressDTO());
 
     }
+
+
+    private WeatherDTO getCurrentWeather(String city){
+        return weatherApiClient.getCurrentWeather(access_key, city);
+    }
+
+
 
 }
